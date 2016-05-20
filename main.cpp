@@ -58,7 +58,8 @@ int main(int argc, char *argv[])
     QString source = parser.value(sourceOption);
 
     Container w;
-    w.setFixedSize(width, height);
+//    w.setFixedSize(width, height);
+    w.setGeometry(x, y, width, height);
     w.show();
 
     QProcess p;
@@ -68,7 +69,7 @@ int main(int argc, char *argv[])
     p.setArguments(arguments);
     p.start();
 
-    EmbedWindow(w.winId(), wid, x, y);
+//    EmbedWindow(w.winId(), wid, x, y);
 
     QObject::connect(&p, SIGNAL(finished(int)), qApp, SLOT(quit()));
 
