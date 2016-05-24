@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+class QMenu;
 class Container : public QWidget
 {
     Q_OBJECT
@@ -10,6 +11,16 @@ class Container : public QWidget
 public:
     Container(QWidget *parent = 0);
     ~Container();
+
+public slots:
+    void menuItemTriggered(QAction *);
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *);
+
+private:
+    QMenu *m_menu;
+    QAction *m_quitAction;
 };
 
 #endif // CONTAINER_H
